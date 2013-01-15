@@ -53,6 +53,11 @@ describe("Finance Formulas", function() {
 		
 	});
 	describe("Financial Market", function(){
-		
+		it("Rate of Inflation", function() {
+			expect(W.RoI(3000, 2500)).toEqual(20);
+		});
+		it("Real Rate of Return", function() {
+			expect(W.RRoR(5, 3)).toEqual(1.942);
+		});
 	});
 });
