@@ -7,6 +7,9 @@ describe("Finance Formulas", function() {
 			it("Upto 5 places", function(){
 				expect(W.privateMethods.round(5.4533698683, 5)).toEqual(5.45337);
 			});
+			it("Next Integer", function(){
+				expect(W.privateMethods.round(21.999929266262, 0)).toEqual(22);
+			});
 		});
 	});
 	describe("Banking", function() {
@@ -55,21 +58,31 @@ describe("Finance Formulas", function() {
 		it("FV of Annuity - Continuous Compounding", function() {
 			expect(W.fvAnnuityCC(1000, 0.5, 12)).toEqual(12336.42);
 		});
+		it("Annuity (FV)- Solve for n", function() {
+			expect(W.nFVA(19600, 5, 1000)).toEqual(14.001);
+		});
 		it("Annuity Payment (PV)", function() {
 			expect(W.PV(1000, 5, 12)).toEqual(112.83);
 		});
-		it("Annuity Payment Factor - PV", function() {
-			expect(W.PVFactor(0.5, 24)).toEqual(0.04433);
+		it("Annuity Payment (FV)", function() {
+			expect(W.FV(5000, 3, 5)).toEqual(941.78);
 		});
-		it("Annuity Payment Factor - PV", function() {
+		it("Annuity (PV)- Solve for n", function() {
+			expect(W.nPVA(19660, 1, 1000)).toEqual(22);
+		});
+		it("Present Value of Annuity", function() {
 			expect(W.PVPresent(10000, 5, 2)).toEqual(18594.11);
+		});
+		it("Average Collection Period", function() {
+			expect(W.avCP(8)).toEqual(45.63);
+		});
+		it("Present Value Annuity Factor", function() {
+			expect(W.PVFactor(0.5, 24)).toEqual(0.04433);
 		});
 	});
 	describe("Stocks / Bonds", function(){
-		
 	});
 	describe("Corporate Finance", function(){
-		
 	});
 	describe("Financial Market", function(){
 		it("Rate of Inflation", function() {

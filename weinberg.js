@@ -82,6 +82,7 @@ var W =(function (){
 	
 
 
+	//General Finance Formulas
 
 	var fvAnnuity = function(P, r, n){
 		r = _p(r);
@@ -93,9 +94,9 @@ var W =(function (){
 		return _r(CF*((Math.pow(e,	(r*t))-1)/(Math.pow(e, r)-1)));
 	};
 
-	var nFVA = function(n, FV, r, P){
+	var nFVA = function(FV, r, P){
 		r = _p(r);
-		return _r(Math.log(1+((FV*r)/P))/Math.log(1+r));
+		return _r((Math.log(1+((FV*r)/P))/Math.log(1+r)), 3);
 	};
 
 	var PV = function(PV, r, n){
@@ -108,14 +109,23 @@ var W =(function (){
 		return _r((FV*r)/(Math.pow((1+r), n) - 1));
 	};
 
-	var PVFactor = function(r, n){
+	var nPVA = function(PV, r, P){
 		r = _p(r);
-		return _r((r/(1-(Math.pow((1+r),(-n))))), 5);
+		return _r((Math.log(Math.pow((1-((PV*r)/P)), -1)))/(Math.log(1+r)), 0);
 	};
 
 	var PVPresent = function(P, r, n){
 		r = _p(r);
 		return _r(P*((1-(Math.pow((1+r),(-n))))/(r)));
+	};
+
+	var avCP = function(turnover){
+		return _r((365/turnover), 2);
+	};
+
+	var PVFactor = function(r, n){
+		r = _p(r);
+		return _r((r/(1-(Math.pow((1+r),(-n))))), 5);
 	};
 
 
@@ -140,15 +150,17 @@ var W =(function (){
 		LTDRatio : LTDRatio,
 		LTVRatio : LTVRatio,
 		SI : SI,
-		RoI : RoI,
-		RRoR : RRoR,
 		fvAnnuity : fvAnnuity,
 		fvAnnuityCC : fvAnnuityCC,
 		nFVA : nFVA,
 		PV : PV,
 		FV : FV,
-		PVFactor : PVFactor,
+		nPVA : nPVA,
 		PVPresent : PVPresent,
+		avCP: avCP,
+		PVFactor : PVFactor,
+		RoI : RoI,
+		RRoR : RRoR,
 		privateMethods : {
 			round : _r
 		}
