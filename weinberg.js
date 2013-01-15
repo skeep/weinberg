@@ -118,8 +118,30 @@ var W =(function (){
 		return _r(P*((1-(Math.pow((1+r),(-n))))/(r)));
 	};
 
+
+
+	var RoI = function(endingCPI, initialCPI){
+		return _r(_P((endingCPI - initialCPI)/initialCPI));
+	};
+
+	var RRoR = function(nominal, inflation){
+		return _r(_P(((1+_p(nominal))/(1+_p(inflation)))-1), 3);
+	};
+
 	return {
 		APY : APY,
+		Pbl : Pbl,
+		CI : CI,
+		CCI : CCI,
+		DIRatio : DIRatio,
+		BBLoan : BBLoan,
+		LoanP : LoanP,
+		LoanRemaining : LoanRemaining,
+		LTDRatio : LTDRatio,
+		LTVRatio : LTVRatio,
+		SI : SI,
+		RoI : RoI,
+		RRoR : RRoR,
 		fvAnnuity : fvAnnuity,
 		fvAnnuityCC : fvAnnuityCC,
 		nFVA : nFVA,
@@ -127,12 +149,6 @@ var W =(function (){
 		FV : FV,
 		PVFactor : PVFactor,
 		PVPresent : PVPresent,
-		Pbl : Pbl,
-		CI : CI,
-		BBLoan : BBLoan,
-		LoanP : LoanP,
-		LoanRemaining : LoanRemaining,
-		SI : SI,
 		privateMethods : {
 			round : _r
 		}
