@@ -105,6 +105,9 @@ var W =(function (){
 		BBLoan : BBLoan,
 		LoanP : LoanP,
 		LoanRemaining : LoanRemaining,
-		SI : SI
+		SI : SI,
+		privateMethods : {
+			round : _r
+		}
 	};
 })();
