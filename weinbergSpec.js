@@ -19,11 +19,30 @@ describe("Finance Formulas", function() {
 		it("Compound Interest", function() {
 			expect(W.CI(1000, 1, 12)).toEqual(126.83);
 		});
+		it("Continuous Compound Interest", function() {
+			expect(W.CCI(50000, 1, 12)).toEqual(56374.85);
+		});
+		it("Debt to Income Ratio", function() {
+			expect(W.DIRatio(10000, 15000)).toEqual(66.67);
+		});
 		it("Loan - Balloon Balance", function() {
 			expect(W.BBLoan(100000, 843.86, 0.5, 60)).toEqual(76008.88);
 		});
 		it("Loan - Payment", function() {
 			expect(W.LoanP(100000, 5, 36)).toEqual(6043.45);
+		});
+		it("Loan - Remaining Balance", function() {
+			expect(W.LoanRemaining(10000, 20000, 0.5, 20)).toEqual(-408533.35);
+		});
+		describe("Loan to Deposit Ratio", function() {
+			it("case 1", function(){expect(W.LTDRatio(30000, 20000)).toEqual(150);});
+			it("case 2", function(){expect(W.LTDRatio(40000, 20000)).toEqual(200);});
+			it("case 3", function(){expect(W.LTDRatio(20000, 20000)).toEqual(100);});
+		});
+		describe("Loan to Value (LTV)", function() {
+			it("case 1", function(){expect(W.LTVRatio(30000, 20000)).toEqual(150);});
+			it("case 2", function(){expect(W.LTVRatio(40000, 20000)).toEqual(200);});
+			it("case 3", function(){expect(W.LTVRatio(20000, 20000)).toEqual(100);});
 		});
 		it("Simple Interest", function() {
 			expect(W.SI(10000, 0.5, 12)).toEqual(600);
