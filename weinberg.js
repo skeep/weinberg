@@ -25,6 +25,8 @@ var W =(function (){
 		return Math.ceil(num * factor) / factor;
 	};
 
+
+	//Banking Formula
 	var APY = function(r, n){
 		r = _p(r);
 		return _r((Math.pow((1+(r/n)), n)-1), 5);
@@ -40,9 +42,13 @@ var W =(function (){
 		return _r(P*(Math.pow((1+r), n)-1));
 	};
 
-	var SI = function(P, r, t){
+	var CCI = function(P, r, t){
 		r = _p(r);
-		return _r(P*r*t);
+		return _r(P*Math.pow(e, (r*t)));
+	};
+
+	var DIRatio = function(debt, income){
+		return _r(_P(debt/income));
 	};
 
 	var BBLoan = function(PV, P, r, n){
@@ -59,6 +65,23 @@ var W =(function (){
 		r = _p(r);
 		return _r((PV*Math.pow((1+r),n))-(P*((Math.pow((1+r), n)-1)/r)));
 	};
+
+	var LTDRatio = function(loan, deposit){
+		return _r(_P(loan/deposit));
+	};
+
+	var LTVRatio = function(amount, value){
+		return _r(_P(amount/value));
+	};
+
+	var SI = function(P, r, t){
+		r = _p(r);
+		return _r(P*r*t);
+	};
+
+	
+
+
 
 	var fvAnnuity = function(P, r, n){
 		r = _p(r);
