@@ -7,6 +7,10 @@ var W =(function (){
 		return (r/100);
 	};
 
+	var _P = function(num){
+		return (num*100);
+	};
+
 	var _r = function(num, upto){
 		var factor;
 		if(!upto){
