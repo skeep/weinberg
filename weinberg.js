@@ -2,9 +2,11 @@ var W =(function (){
 	"use strict";
 	//Mathemetical Constant
 	var e = Math.E;
+
 	var _p = function(r){
 		return (r/100);
 	};
+
 	var _r = function(num, upto){
 		var factor;
 		if(!upto){
@@ -21,7 +23,7 @@ var W =(function (){
 
 	var APY = function(r, n){
 		r = _p(r);
-		return _r((Math.pow((1+(r/n)), n)-1));
+		return _r((Math.pow((1+(r/n)), n)-1), 5);
 	};
 
 	var Pbl = function(P, PV, r, n){
