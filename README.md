@@ -1,17 +1,17 @@
 #weinberg.js
 
 ##Banking
-* Annual Percentage Yield : W.APY(r, n)
-* Balloon Loan - Payments : W.Pbl(P, PV, r, n)
-* Compound Interest : W.CI(P, r, n)
-* Continuous Compounding : W.CCI(P, r, t)
-* Debt to Income Ratio (D/I) : W.DIRatio(debt, income)
-* Loan - Balloon Balance : W.BBLoan(PV, P, r, n)
-* Loan - Payment : W.LoanP(PV, r, n)
-* Loan - Remaining Balance : W.LoanRemaining(PV, P, r, n)
-* Loan to Deposit Ratio : W.LTDRatio(loan, deposit)
-* Loan to Value (LTV) : W.LTVRatio(amount, value)
-* Simple Interest : W.SI(P, r, t)
+* Annual Percentage Yield : **W.APY(r, n)**
+* Balloon Loan - Payments : **W.Pbl(P, PV, r, n)**
+* Compound Interest : **W.CI(P, r, n)**
+* Continuous Compounding : **W.CCI(P, r, t)**
+* Debt to Income Ratio (D/I) : **W.DIRatio(debt, income)**
+* Loan - Balloon Balance : **W.BBLoan(PV, P, r, n)**
+* Loan - Payment : **W.LoanP(PV, r, n)**
+* Loan - Remaining Balance : **W.LoanRemaining(PV, P, r, n)**
+* Loan to Deposit Ratio : **W.LTDRatio(loan, deposit)**
+* Loan to Value (LTV) : **W.LTVRatio(amount, value)**
+* Simple Interest : **W.SI(P, r, t)**
 
 ##General Finance
 * Annuity - Future Value
