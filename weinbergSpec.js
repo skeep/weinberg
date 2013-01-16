@@ -62,10 +62,10 @@ describe("Finance Formulas", function() {
 			expect(W.nFVA(19600, 5, 1000)).toEqual(14.001);
 		});
 		it("Annuity Payment (PV)", function() {
-			expect(W.PV(1000, 5, 12)).toEqual(112.83);
+			expect(W.aPV(1000, 5, 12)).toEqual(112.83);
 		});
 		it("Annuity Payment (FV)", function() {
-			expect(W.FV(5000, 3, 5)).toEqual(941.78);
+			expect(W.aFV(5000, 3, 5)).toEqual(941.78);
 		});
 		it("Annuity (PV)- Solve for n", function() {
 			expect(W.nPVA(19660, 1, 1000)).toEqual(22);
@@ -85,8 +85,62 @@ describe("Finance Formulas", function() {
 		it("Future Value of Annuity Due", function() {
 			expect(W.FVoAD(1000, 3, 5)).toEqual(5468.41);
 		});
-		it("Future Value of Annuity Due", function() {
-			expect(W.Pmt(5000, 3, 5)).toEqual(1059.98);
+		it("Annuity Due Payment - PV", function() {
+			expect(W.PmtPV(5000, 3, 5)).toEqual(1059.98);
+		});
+		it("Annuity Due Payment - FV", function() {
+			expect(W.PmtFV(5000, 3, 5)).toEqual(914.35);
+		});
+		it("Doubling Time", function() {
+			expect(W.DT(6)).toEqual(138.98);
+		});
+		it("Doubling Time - Continuous Compounding", function() {
+			expect(W.DTcc(6)).toEqual(11.56);
+		});
+		it("Doubling Time - Simple Interest", function() {
+			expect(W.DTsi(10)).toEqual(10);
+		});
+		it("Future Value", function() {
+			expect(W.FV(1000, 5, 12)).toEqual(1795.86);
+		});
+		it("FV - Continuous Compounding", function() {
+			expect(W.FVcc(3000, 4, 4)).toEqual(3520.54);
+		});
+		it("Future Value Factor", function() {
+			expect(W.FvF(1, 12)).toEqual(1.1269);
+		});
+		it("Future Value of Growing Annuity", function() {
+			expect(W.FVGA(2000, 3, 5, 5)).toEqual(11700.75);
+		});
+		it("Growing Annuity Payment - PV", function() {
+			expect(W.GAPpv(10000, 5, 8, 5)).toEqual(1983.38);
+		});
+		it("Growing Annuity Payment - FV", function() {
+			expect(W.IPGA(10000, 5, 8, 5)).toEqual(1554.03);
+		});
+		it("Growing Annuity - Present Value", function() {
+			expect(W.PVGA(10000, 5, 8, 5)).toEqual(50419);
+		});
+		it("Growing Perpetuity - Present Value", function() {
+			expect(W.PVGP(1000, 10, 5)).toEqual(20000);
+		});
+		it("Number of Periods - PV & FV", function() {
+			expect(W.NoP(2000, 1500, 6)).toEqual(57.69);
+		});
+		it("Perpetuity", function() {
+			expect(W.PVoP(10, 5)).toEqual(200);
+		});
+		it("Present Value", function() {
+			expect(W.PV(100, 5, 1)).toEqual(95.24);
+		});
+		it("PV - Continuous Compounding", function() {
+			expect(W.PVcc(1100, 8, 2)).toEqual(937.36);
+		});
+		it("Present Value Factor", function() {
+			expect(W.PVf(5, 12)).toEqual(0.55684);
+		});
+		it("Rule of 72", function() {
+			expect(W.r72(5)).toEqual(14.4);
 		});
 	});
 	describe("Stocks / Bonds", function(){

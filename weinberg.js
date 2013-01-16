@@ -99,12 +99,12 @@ var W =(function (){
 		return _r((Math.log(1+((FV*r)/P))/Math.log(1+r)), 3);
 	};
 
-	var PV = function(PV, r, n){
+	var aPV = function(PV, r, n){
 		r = _p(r);
 		return _r((r*PV)/(1-Math.pow((1+r),(-n))));
 	};
 
-	var FV = function(FV, r, n){
+	var aFV = function(FV, r, n){
 		r = _p(r);
 		return _r((FV*r)/(Math.pow((1+r), n) - 1));
 	};
@@ -138,11 +138,74 @@ var W =(function (){
 		return _r((1+r)*(P*((Math.pow((1+r),n)-1)/r)));
 	};
 
-	var Pmt = function(PV, r, n){
+	var PmtPV = function(PV, r, n){
 		r = _p(r);
 		return _r(PV*((r/(1-Math.pow((1+r),(-n))))*(1/(1+r))));
 	};
 
+	var PmtFV = function(FV, r, n){
+		r = _p(r);
+		return _r(FV*(r/((Math.pow((1+r),n))-1))*(1/(1+r)));
+	};
+
+	var DT = function(r){
+		return _r(Math.LN2/Math.log(1+(_p(r)/12)));
+	};
+
+	var DTcc = function(r){
+		return _r(Math.LN2/_p(r));
+	};
+
+	var DTsi = function(r){
+		return _r(1/_p(r));
+	};
+
+	var FV = function(C, r, n){
+		return _r(C*(Math.pow((1+_p(r)), n)));
+	};
+
+	var FVcc = function(PV, r, t){
+		return _r(PV*Math.pow(e,(_p(r)*t)));
+	};
+
+	var FvF = function(r, n){
+		return _r(Math.pow((1+_p(r)), n), 4);
+	};
+
+	var FVGA = function(P, r, g, n){
+		r = _p(r);
+		g = _p(g);
+		return _r(P*(((Math.pow((1+r),n))-(Math.pow((1+g),n)))/(r-g)));
+	};
+
+	var GAPpv = function(PV, r , g , n){
+		r = _p(r);
+		g = _p(g);
+		return _r(PV*((r-g)/(1-Math.pow(((1+g)/(1+r)),n))));
+	};
+
+	var IPGA = function(FV, r, g, n){
+		r = _p(r);
+		g = _p(g);
+		return _r(FV*((r-g)/(Math.pow((1+r),n)-Math.pow((1+g),n))));
+	};
+
+	var PVGA = function(P, r, g, n){
+		r = _p(r);
+		g = _p(g);
+		return _r((P/(r-g))*(1-(Math.pow(((1+g)/(1+r)),n))));
+	};
+
+	var PVGP = function(D, r, g){
+		r = _p(r);
+		g = _p(g);
+		return _r(D/(r-g));
+	};
+
+	var NoP = function(FV, PV, r){
+		r = _p(r/12);
+		return _r((Math.log(FV/PV))/(Math.log(1+r)));
+	};
 
 	//Financial Markets Formulas
 	var RoI = function(endingCPI, initialCPI){
@@ -151,6 +214,23 @@ var W =(function (){
 
 	var RRoR = function(nominal, inflation){
 		return _r(_P(((1+_p(nominal))/(1+_p(inflation)))-1), 3);
+	};
+
+	var PVoP = function(D, r){
+		return _r(D/_p(r));
+	};
+
+	var PV = function(C, r, n){
+		return _r(C/(Math.pow((1+_p(r)),n)));
+	};
+	var PVcc = function(C, r, t){
+		return _r(C/Math.pow(e,(_p(r)*t)));
+	};
+	var PVf = function(r, n){
+		return _r((1/(Math.pow((1+_p(r)),n))), 5);
+	};
+	var r72 = function(r){
+		return _r(72/r);
 	};
 
 	return {
@@ -168,15 +248,33 @@ var W =(function (){
 		fvAnnuity : fvAnnuity,
 		fvAnnuityCC : fvAnnuityCC,
 		nFVA : nFVA,
-		PV : PV,
-		FV : FV,
+		aPV : aPV,
+		aFV : aFV,
 		nPVA : nPVA,
 		PVPresent : PVPresent,
 		avCP: avCP,
 		PVFactor : PVFactor,
 		PVoAD : PVoAD,
 		FVoAD : FVoAD,
-		Pmt :Pmt,
+		PmtPV : PmtPV,
+		PmtFV : PmtFV,
+		DT : DT,
+		DTcc : DTcc,
+		DTsi : DTsi,
+		FV : FV,
+		FVcc : FVcc,
+		FvF : FvF,
+		FVGA : FVGA,
+		GAPpv : GAPpv,
+		IPGA : IPGA,
+		PVGA : PVGA,
+		PVGP : PVGP,
+		NoP : NoP,
+		PVoP:PVoP,
+		PV:PV,
+		PVcc:PVcc,
+		PVf:PVf,
+		r72:r72,
 		RoI : RoI,
 		RRoR : RRoR,
 		privateMethods : {
