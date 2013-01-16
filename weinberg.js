@@ -128,8 +128,23 @@ var W =(function (){
 		return _r((r/(1-(Math.pow((1+r),(-n))))), 5);
 	};
 
+	var PVoAD = function(P, r, n){
+		r = _p(r);
+		return _r(P+(P*((1-Math.pow((1+r),-(n-1)))/r)));
+	};
+
+	var FVoAD = function(P, r, n){
+		r = _p(r);
+		return _r((1+r)*(P*((Math.pow((1+r),n)-1)/r)));
+	};
+
+	var Pmt = function(PV, r, n){
+		r = _p(r);
+		return _r(PV*((r/(1-Math.pow((1+r),(-n))))*(1/(1+r))));
+	};
 
 
+	//Financial Markets Formulas
 	var RoI = function(endingCPI, initialCPI){
 		return _r(_P((endingCPI - initialCPI)/initialCPI));
 	};
@@ -159,6 +174,9 @@ var W =(function (){
 		PVPresent : PVPresent,
 		avCP: avCP,
 		PVFactor : PVFactor,
+		PVoAD : PVoAD,
+		FVoAD : FVoAD,
+		Pmt :Pmt,
 		RoI : RoI,
 		RRoR : RRoR,
 		privateMethods : {

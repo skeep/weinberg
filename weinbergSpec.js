@@ -79,6 +79,15 @@ describe("Finance Formulas", function() {
 		it("Present Value Annuity Factor", function() {
 			expect(W.PVFactor(0.5, 24)).toEqual(0.04433);
 		});
+		it("Present Value of Annuity Due", function() {
+			expect(W.PVoAD(1000, 3, 5)).toEqual(4717.10);
+		});
+		it("Future Value of Annuity Due", function() {
+			expect(W.FVoAD(1000, 3, 5)).toEqual(5468.41);
+		});
+		it("Future Value of Annuity Due", function() {
+			expect(W.Pmt(5000, 3, 5)).toEqual(1059.98);
+		});
 	});
 	describe("Stocks / Bonds", function(){
 	});
