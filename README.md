@@ -1,6 +1,10 @@
 #weinberg.js
 
 ##Banking
+|                    | default |                        
+|:-----------------------------------|:--------------------------|
+| Annual Percentage Yield    | **W.APY(r, n)**         | 
+
 * Annual Percentage Yield : **W.APY(r, n)**
 * Balloon Loan - Payments : **W.Pbl(P, PV, r, n)**
 * Compound Interest : **W.CI(P, r, n)**
