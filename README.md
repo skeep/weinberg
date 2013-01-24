@@ -3,7 +3,7 @@
 ##Banking
 |  Formula  | API Call |                        
 |:-----------------------------------|:--------------------------|
-| Annual Percentage Yield    | **W.APY**(r, n)       | 
+| Annual Percentage Yield    | **W.APY**(r [annual interest rate] , n [number of times compunded])       | 
 | Balloon Loan - Payments | **W.Pbl**(P, PV, r, n) |
 | Compound Interest | **W.CI**(P, r, n) |
 | Continuous Compounding | **W.CCI**(P, r, t) |
